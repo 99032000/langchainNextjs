@@ -200,7 +200,14 @@ export default function Home() {
                                         {doc.pageContent}
                                       </ReactMarkdown>
                                       <p className="mt-2">
-                                        <b>Source:</b> {doc.metadata.source}
+                                        <b className=" mr-2">Source:</b>
+                                        <a
+                                          href={doc.metadata.source}
+                                          target="_blank"
+                                          className=" text-blue-600"
+                                        >
+                                          {doc.metadata.source}
+                                        </a>
                                       </p>
                                     </AccordionContent>
                                   </AccordionItem>

@@ -17,7 +17,12 @@ export abstract class BufferLoader extends BaseDocumentLoader {
     let metadata: Record<string, string>;
     if (typeof this.filePathOrBlob === 'string') {
       buffer = await readFile(this.filePathOrBlob);
-      metadata = { source: process.env.CUSTOM_DOMAIN + '/docs/' + 'fs06.pdf' };
+      metadata = {
+        source:
+          process.env.CUSTOM_DOMAIN +
+          '/docs/' +
+          this.filePathOrBlob.split('/').pop(),
+      };
     } else {
       buffer = await this.filePathOrBlob
         .arrayBuffer()
@@ -35,6 +40,7 @@ export class CustomPDFLoader extends BufferLoader {
   ): Promise<Document[]> {
     const { pdf } = await PDFLoaderImports();
     const parsed = await pdf(raw);
+
     return [
       new Document({
         pageContent: parsed.text,
