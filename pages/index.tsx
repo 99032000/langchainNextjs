@@ -39,6 +39,9 @@ export default function Home() {
 
   useEffect(() => {
     textAreaRef.current?.focus();
+    return () => {
+      textAreaRef.current?.blur();
+    };
   }, []);
 
   //handle form submission
