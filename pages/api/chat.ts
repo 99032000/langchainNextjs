@@ -43,6 +43,8 @@ export default async function handler(
       question: sanitizedQuestion,
       chat_history: history || [],
     });
+    if (response.text === "Hmm, I'm not sure.")
+      return res.status(200).json({ text: response.text });
     res.status(200).json(response);
   } catch (error: any) {
     console.log('error', error);
