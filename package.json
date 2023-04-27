@@ -20,6 +20,7 @@
     "@radix-ui/react-accordion": "^1.1.1",
     "cheerio": "^1.0.0-rc.12",
     "clsx": "^1.2.1",
+    "daisyui": "^2.51.6",
     "dotenv": "^16.0.3",
     "langchain": "0.0.55",
     "lucide-react": "^0.125.0",
