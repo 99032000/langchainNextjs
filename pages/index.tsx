@@ -44,12 +44,13 @@ export default function Home() {
       textAreaRef.current?.blur();
     };
   }, []);
+
   useEffect(() => {
     if (messages.length === 0) {
       return;
     }
     if (bottomRef.current) {
-      bottomRef.current.scrollIntoView({ behavior: 'smooth' });
+      bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages]);
   //handle form submission
@@ -114,7 +115,7 @@ export default function Home() {
       setLoading(false);
 
       //scroll to bottom
-      messageListRef.current?.scrollTo(0, messageListRef.current.scrollHeight);
+      // messageListRef.current?.scrollTo(0, messageListRef.current.scrollHeight);
     } catch (error) {
       setLoading(false);
       setError('An error occurred while fetching the data. Please try again.');
@@ -247,7 +248,7 @@ export default function Home() {
                         </ReactMarkdown>
                         <svg
                           aria-hidden="true"
-                          class="inline w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-gray-600 dark:fill-gray-300"
+                          className="inline w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-gray-600 dark:fill-gray-300"
                           viewBox="0 0 100 101"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
