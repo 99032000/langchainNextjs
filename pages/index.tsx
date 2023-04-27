@@ -171,69 +171,85 @@ export default function Home() {
                   }
                   return (
                     <>
-                      <div key={`chatMessage-${index}`} className={className}>
+                      {/* <div key={`chatMessage-${index}`} className={className}>
                         {icon}
                         <div className={styles.markdownanswer}>
                           <ReactMarkdown linkTarget="_blank">
                             {message.message}
                           </ReactMarkdown>
                         </div>
-                      </div>
-                      {message.sourceDocs && (
-                        <div
-                          className="p-5"
-                          key={`sourceDocsAccordion-${index}`}
-                        >
-                          <Accordion
-                            type="single"
-                            collapsible
-                            className="flex-col"
-                          >
-                            {message.sourceDocs.map((doc, index) => {
-                              return (
-                                <div key={`messageSourceDocs-${index}`}>
-                                  <AccordionItem value={`item-${index}`}>
-                                    <AccordionTrigger>
-                                      <h3>Source {index + 1}</h3>
-                                    </AccordionTrigger>
-                                    <AccordionContent>
-                                      <ReactMarkdown linkTarget="_blank">
-                                        {doc.pageContent}
-                                      </ReactMarkdown>
-                                      <p className="mt-2">
-                                        <b className=" mr-2">Source:</b>
-                                        <a
-                                          href={doc.metadata.source}
-                                          target="_blank"
-                                          className=" text-blue-600"
-                                        >
-                                          {doc.metadata.source}
-                                        </a>
-                                      </p>
-                                    </AccordionContent>
-                                  </AccordionItem>
-                                </div>
-                              );
-                            })}
-                          </Accordion>
+                      </div> */}
+                      <div
+                        className={
+                          message.type === 'apiMessage'
+                            ? 'chat chat-start mb-8'
+                            : 'chat chat-end mb-8'
+                        }
+                      >
+                        <div className="chat-image avatar">
+                          <div className="w-10 rounded-full">{icon}</div>
                         </div>
-                      )}
+                        <div className="chat-bubble">
+                          {message.message}
+                          {message.sourceDocs && (
+                            <div
+                              className="p-5"
+                              key={`sourceDocsAccordion-${index}`}
+                            >
+                              <Accordion
+                                type="single"
+                                collapsible
+                                className="flex-col"
+                              >
+                                {message.sourceDocs.map((doc, index) => {
+                                  return (
+                                    <div key={`messageSourceDocs-${index}`}>
+                                      <AccordionItem value={`item-${index}`}>
+                                        <AccordionTrigger>
+                                          <h3>Source {index + 1}</h3>
+                                        </AccordionTrigger>
+                                        <AccordionContent>
+                                          <ReactMarkdown linkTarget="_blank">
+                                            {doc.pageContent}
+                                          </ReactMarkdown>
+                                          <p className="mt-2">
+                                            <b className=" mr-2">Source:</b>
+                                            <a
+                                              href={doc.metadata.source}
+                                              target="_blank"
+                                              className=" text-blue-600"
+                                            >
+                                              {doc.metadata.source}
+                                            </a>
+                                          </p>
+                                        </AccordionContent>
+                                      </AccordionItem>
+                                    </div>
+                                  );
+                                })}
+                              </Accordion>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </>
                   );
                 })}
                 {loading && (
-                  <div className={styles.usermessagewaiting}>
-                    {
-                      <Image
-                        src="/bot-image.png"
-                        alt="AI"
-                        width="40"
-                        height="40"
-                        className={styles.boticon}
-                        priority
-                      />
-                    }
-                    <div className={styles.markdownanswer}>
+                  <div className="chat chat-start">
+                    <div className="chat-image avatar">
+                      <div className="w-10 rounded-full">
+                        <Image
+                          src="/bot-image.png"
+                          alt="AI"
+                          width="40"
+                          height="40"
+                          className={styles.boticon}
+                          priority
+                        />
+                      </div>
+                    </div>
+                    <div className="chat-bubble">
                       <div className=" flex flex-row justify-between gap-2">
                         <ReactMarkdown linkTarget="_blank">
                           I am hustling to solving the question 🧐,please
@@ -241,7 +257,7 @@ export default function Home() {
                         </ReactMarkdown>
                         <svg
                           aria-hidden="true"
-                          className="inline w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-gray-600 dark:fill-gray-300"
+                          className="inline w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-slate-700 dark:fill-gray-300"
                           viewBox="0 0 100 101"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"

@@ -12,7 +12,7 @@ Standalone question:`;
 const QA_PROMPT = `You are a helpful AI assistant. Use the following pieces of context to answer the question at the end.
 If you don't know the answer, just say the sentence "Hmm, I'm not sure." exactly. DO NOT try to make up an answer.
 If the question is not related to the context, just say the sentence "Hmm, I'm not sure." exactly. DO NOT try to make up an answer.
-
+If the question is asking who are you, just say the sentence "I am an AI assistant." exactly. DO NOT try to make up an answer.
 {context}
 
 Question: {question}
