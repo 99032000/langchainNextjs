@@ -36,7 +36,7 @@ export default function Home() {
 
   const messageListRef = useRef<HTMLDivElement>(null);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const bottomRef = useRef(null);
+  const bottomRef = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
     textAreaRef.current?.focus();
