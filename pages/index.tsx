@@ -144,7 +144,7 @@ export default function Home() {
                         key={index}
                         src="/bot-image1.png"
                         alt="AI"
-                        width="40"
+                        width="50"
                         height="40"
                         className={styles.boticon}
                         priority
@@ -186,7 +186,7 @@ export default function Home() {
                             : 'chat chat-end mb-8'
                         }
                       >
-                        <div className="chat-image avatar">
+                        <div className="chat-image">
                           <div className="w-10 rounded-full">{icon}</div>
                         </div>
                         <div className="chat-bubble">

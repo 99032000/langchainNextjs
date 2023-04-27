@@ -1,7 +1,7 @@
 interface LayoutProps {
   children?: React.ReactNode;
 }
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 export default function Layout({ children }: LayoutProps) {
   return (
     <div className="mx-auto flex flex-col space-y-4">
