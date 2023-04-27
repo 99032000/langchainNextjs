@@ -43,7 +43,6 @@ export default async function handler(
       question: sanitizedQuestion,
       chat_history: history || [],
     });
-    console.log(response);
     res.status(200).json(response);
   } catch (error: any) {
     console.log('error', error);

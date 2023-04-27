@@ -92,8 +92,6 @@ export default function Home() {
         }),
       });
       const data = await response.json();
-      console.log('data', data);
-
       if (data.error) {
         setError(data.error);
       } else {
@@ -110,12 +108,7 @@ export default function Home() {
           history: [...state.history, [question, data.text]],
         }));
       }
-      console.log('messageState', messageState);
-
       setLoading(false);
-
-      //scroll to bottom
-      // messageListRef.current?.scrollTo(0, messageListRef.current.scrollHeight);
     } catch (error) {
       setLoading(false);
       setError('An error occurred while fetching the data. Please try again.');
