@@ -129,8 +129,8 @@ export default function Home() {
     <>
       <Layout>
         <div className="mx-auto flex flex-col gap-4">
-          <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center">
-            Chat With Your Legal Docs
+          <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center text-slate-300">
+            Rental Copilot
           </h1>
           <main className={styles.main}>
             <div className={styles.cloud}>
@@ -142,7 +142,7 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/bot-image.png"
+                        src="/bot-image1.png"
                         alt="AI"
                         width="40"
                         height="40"
@@ -252,8 +252,7 @@ export default function Home() {
                     <div className="chat-bubble">
                       <div className=" flex flex-row justify-between gap-2">
                         <ReactMarkdown linkTarget="_blank">
-                          I am hustling to solving the question 🧐,please
-                          waiting...
+                          I am hustling to solve the question,please wait...
                         </ReactMarkdown>
                         <svg
                           aria-hidden="true"
@@ -329,11 +328,11 @@ export default function Home() {
             )}
           </main>
         </div>
-        <footer className="m-auto p-4">
+        {/* <footer className="m-auto p-4">
           <a href="https://twitter.com/mayowaoshin">
             Powered by LangChainAI -- Developed by Damongege.
           </a>
-        </footer>
+        </footer> */}
       </Layout>
     </>
   );

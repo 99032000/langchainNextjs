@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  
+  background: transparent;
 }
 
 .header {
@@ -27,8 +27,8 @@
   width: 75vw;
   border-radius: 0.5rem;
   border: 1px solid #d9d9e3;
-  background: #ffffff;
-  color: #000;
+  background-color: rgba(0,0,0, 0.4); 
+  color: white;
   outline: none;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .textarea::placeholder {
-  color: #6b7280;
+  color: white
 }
 
 .generatebutton {
@@ -87,7 +87,12 @@
   overflow-y: scroll;
   border-radius: 0.5rem;
   padding: 2rem;
-  background-color: hsl(218, 13%, 54%);
+  background: transparent;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.messagelist::-webkit-scrollbar {
+  display: none;
 }
 
 .messagelistloading {
@@ -194,7 +199,7 @@
 .cloud {
   width: 75vw;
   height: 65vh;
-  background: #ffffff;
+  background-color: rgba(0,0,0, 0.4); 
   border-radius: 0.5rem;
   border: 1px solid #d9d9e3;
   display: flex;
