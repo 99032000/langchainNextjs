@@ -113,7 +113,6 @@ export default function Home() {
         docs.forEach((doc) => {
           content += doc.pageContent + '\n\n\n';
         });
-        console.log(content);
         return {
           pageContent: content,
           metadata: docs[0].metadata,
