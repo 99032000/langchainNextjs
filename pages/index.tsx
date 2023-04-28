@@ -92,6 +92,33 @@ export default function Home() {
         }),
       });
       const data = await response.json();
+      //sort documents
+      const documents: Document[] = data.sourceDocuments;
+      const sources = [
+        ...new Set(
+          documents.map((item: Document) => {
+            return item.metadata.source;
+          }),
+        ),
+      ];
+      const sortedDocuments = sources.map((source) => {
+        const docs = documents.filter((doc) => doc.metadata.source === source);
+        let content = '';
+        if (docs.length == 1) {
+          return {
+            pageContent: docs[0],
+            metadata: docs[0].metadata,
+          };
+        }
+        docs.forEach((doc) => {
+          content += doc.pageContent + '\n\n\n';
+        });
+        console.log(content);
+        return {
+          pageContent: content,
+          metadata: docs[0].metadata,
+        };
+      });
       if (data.error) {
         setError(data.error);
       } else {
@@ -102,7 +129,7 @@ export default function Home() {
             {
               type: 'apiMessage',
               message: data.text,
-              sourceDocs: data.sourceDocuments,
+              sourceDocs: sortedDocuments,
             },
           ],
           history: [...state.history, [question, data.text]],
@@ -171,14 +198,6 @@ export default function Home() {
                   }
                   return (
                     <>
-                      {/* <div key={`chatMessage-${index}`} className={className}>
-                        {icon}
-                        <div className={styles.markdownanswer}>
-                          <ReactMarkdown linkTarget="_blank">
-                            {message.message}
-                          </ReactMarkdown>
-                        </div>
-                      </div> */}
                       <div
                         className={
                           message.type === 'apiMessage'
