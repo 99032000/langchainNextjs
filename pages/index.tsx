@@ -93,7 +93,7 @@ export default function Home() {
       });
       const data = await response.json();
       //sort documents
-      const documents: Document[] = data.sourceDocuments;
+      const documents: Document[] = data.sourceDocuments ?? [];
       const sources = [
         ...new Set(
           documents.map((item: Document) => {
