@@ -106,7 +106,7 @@ export default function Home() {
         let content = '';
         if (docs.length == 1) {
           return {
-            pageContent: docs[0],
+            pageContent: docs[0].pageContent,
             metadata: docs[0].metadata,
           };
         }
