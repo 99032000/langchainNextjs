@@ -210,7 +210,7 @@ export default function Home() {
                         </div>
                         <div className="chat-bubble">
                           {message.message}
-                          {message.sourceDocs && (
+                          {message.sourceDocs?.length > 0 && (
                             <div
                               className="p-5"
                               key={`sourceDocsAccordion-${index}`}

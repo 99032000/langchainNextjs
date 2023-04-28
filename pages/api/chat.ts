@@ -45,7 +45,7 @@ export default async function handler(
     });
     console.log(response);
     if (
-      response.text.includes("Hmm, I'm not sure.") ||
+      response.text === "Hmm, I'm not sure." ||
       response.text.includes('I am an AI assistant.')
     )
       return res.status(200).json({ text: response.text });
