@@ -6,14 +6,9 @@ import {
 } from '@/components/ui/accordion';
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-
+import { Document } from 'langchain/document';
 interface SourceDisplayProps {
-  doc: {
-    pageContent: String;
-    metadata: {
-      source: String;
-    };
-  };
+  doc: Document;
   index: number;
 }
 export default function SourceDisplay({ doc, index }: SourceDisplayProps) {
