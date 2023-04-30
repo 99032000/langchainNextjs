@@ -102,7 +102,7 @@ export default function Home() {
           }),
         ),
       ];
-      console.log(sources);
+
       const sortedDocuments = sources.map((source) => {
         const docs = documents.filter((doc) => doc.metadata.source === source);
         let content = '';
@@ -224,34 +224,6 @@ export default function Home() {
                                 >
                                   {message.sourceDocs?.map((doc, index) => {
                                     return (
-                                      // <div key={`messageSourceDocs-${index}`}>
-                                      //   <AccordionItem value={`item-${index}`}>
-                                      //     <AccordionTrigger>
-                                      //       <h3>Source {index + 1}</h3>
-                                      //     </AccordionTrigger>
-                                      //     <AccordionContent>
-                                      //       <ReactMarkdown
-                                      //         linkTarget="_blank"
-                                      //         className=" text-ellipsis line-clamp-3"
-                                      //       >
-                                      //         {doc.pageContent}
-                                      //       </ReactMarkdown>
-                                      //       <p className="mt-2 cursor-pointer text-blue-500">
-                                      //         view more
-                                      //       </p>
-                                      //       <p className="mt-2">
-                                      //         <b className=" mr-2">Source:</b>
-                                      //         <a
-                                      //           href={doc.metadata.source}
-                                      //           target="_blank"
-                                      //           className=" text-blue-600"
-                                      //         >
-                                      //           {doc.metadata.source}
-                                      //         </a>
-                                      //       </p>
-                                      //     </AccordionContent>
-                                      //   </AccordionItem>
-                                      // </div>
                                       <SourceDisplay
                                         key={`messageSourceDocs-${index}`}
                                         doc={doc}
@@ -272,7 +244,7 @@ export default function Home() {
                     <div className="chat-image avatar">
                       <div className="w-10 rounded-full">
                         <Image
-                          src="/bot-image.png"
+                          src="/bot-image1.png"
                           alt="AI"
                           width="40"
                           height="40"
