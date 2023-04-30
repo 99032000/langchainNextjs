@@ -199,7 +199,8 @@
 .cloud {
   width: 75vw;
   height: 65vh;
-  background-color: rgba(0,0,0, 0.4); 
+  background-color: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(10px);
   border-radius: 0.5rem;
   border: 1px solid #d9d9e3;
   display: flex;

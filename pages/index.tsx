@@ -6,6 +6,7 @@ import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import LoadingDots from '@/components/ui/LoadingDots';
 import { Document } from 'langchain/document';
+import SourceDisplay from '@/components/ui/SourceDisplay';
 import {
   Accordion,
   AccordionContent,
@@ -101,6 +102,7 @@ export default function Home() {
           }),
         ),
       ];
+      console.log(sources);
       const sortedDocuments = sources.map((source) => {
         const docs = documents.filter((doc) => doc.metadata.source === source);
         let content = '';
@@ -155,8 +157,8 @@ export default function Home() {
     <>
       <Layout>
         <div className="mx-auto flex flex-col gap-4">
-          <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center text-slate-300">
-            Rental Copilot
+          <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center backdrop-filter">
+            Rental Copilot - Your Personal AI Assistant for Rental Matters.
           </h1>
           <main className={styles.main}>
             <div className={styles.cloud}>
@@ -207,7 +209,7 @@ export default function Home() {
                         <div className="chat-image">
                           <div className="w-10 rounded-full">{icon}</div>
                         </div>
-                        <div className="chat-bubble">
+                        <div className="chat-bubble bg-slate-50 text-slate-900">
                           {message.message}
                           {message.sourceDocs &&
                             message.sourceDocs.length > 0 && (
@@ -222,28 +224,39 @@ export default function Home() {
                                 >
                                   {message.sourceDocs?.map((doc, index) => {
                                     return (
-                                      <div key={`messageSourceDocs-${index}`}>
-                                        <AccordionItem value={`item-${index}`}>
-                                          <AccordionTrigger>
-                                            <h3>Source {index + 1}</h3>
-                                          </AccordionTrigger>
-                                          <AccordionContent>
-                                            <ReactMarkdown linkTarget="_blank">
-                                              {doc.pageContent}
-                                            </ReactMarkdown>
-                                            <p className="mt-2">
-                                              <b className=" mr-2">Source:</b>
-                                              <a
-                                                href={doc.metadata.source}
-                                                target="_blank"
-                                                className=" text-blue-600"
-                                              >
-                                                {doc.metadata.source}
-                                              </a>
-                                            </p>
-                                          </AccordionContent>
-                                        </AccordionItem>
-                                      </div>
+                                      // <div key={`messageSourceDocs-${index}`}>
+                                      //   <AccordionItem value={`item-${index}`}>
+                                      //     <AccordionTrigger>
+                                      //       <h3>Source {index + 1}</h3>
+                                      //     </AccordionTrigger>
+                                      //     <AccordionContent>
+                                      //       <ReactMarkdown
+                                      //         linkTarget="_blank"
+                                      //         className=" text-ellipsis line-clamp-3"
+                                      //       >
+                                      //         {doc.pageContent}
+                                      //       </ReactMarkdown>
+                                      //       <p className="mt-2 cursor-pointer text-blue-500">
+                                      //         view more
+                                      //       </p>
+                                      //       <p className="mt-2">
+                                      //         <b className=" mr-2">Source:</b>
+                                      //         <a
+                                      //           href={doc.metadata.source}
+                                      //           target="_blank"
+                                      //           className=" text-blue-600"
+                                      //         >
+                                      //           {doc.metadata.source}
+                                      //         </a>
+                                      //       </p>
+                                      //     </AccordionContent>
+                                      //   </AccordionItem>
+                                      // </div>
+                                      <SourceDisplay
+                                        key={`messageSourceDocs-${index}`}
+                                        doc={doc}
+                                        index={index}
+                                      />
                                     );
                                   })}
                                 </Accordion>
@@ -268,7 +281,7 @@ export default function Home() {
                         />
                       </div>
                     </div>
-                    <div className="chat-bubble">
+                    <div className="chat-bubble bg-slate-50 text-slate-900">
                       <div className=" flex flex-row justify-between gap-2">
                         <ReactMarkdown linkTarget="_blank">
                           I am hustling to solve the question,please wait...
