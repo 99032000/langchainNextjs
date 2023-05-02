@@ -299,7 +299,7 @@ export default function Home() {
                     placeholder={
                       loading
                         ? 'Waiting for response...'
-                        : 'What is this legal case about?'
+                        : 'What do I do if I need a repair?'
                     }
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
@@ -338,7 +338,7 @@ export default function Home() {
         <footer className=" mx-auto p-4 z-20">
           <h1 className="md:text-2xl text-md">
             For business cooperation, please contact:{' '}
-            <span className=" underline">info@rentalcolipot.com.au</span>
+            <span className=" underline">info@rentalcopilot.com.au</span>
           </h1>
         </footer>
       </Layout>
