@@ -26,7 +26,7 @@ export default function Home() {
   }>({
     messages: [
       {
-        message: 'Hi, how can I help today',
+        message: 'Hi, how can I help today?',
         type: 'apiMessage',
       },
     ],
