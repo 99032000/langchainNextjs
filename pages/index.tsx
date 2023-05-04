@@ -173,7 +173,7 @@ export default function Home() {
                     icon = (
                       <Image
                         key={index}
-                        src="/bot-image1.png"
+                        src="/bot-image2.png"
                         alt="AI"
                         width="50"
                         height="40"
@@ -247,7 +247,7 @@ export default function Home() {
                     <div className="chat-image avatar">
                       <div className="w-10 rounded-full">
                         <Image
-                          src="/bot-image1.png"
+                          src="/bot-image2.png"
                           alt="AI"
                           width="40"
                           height="40"
