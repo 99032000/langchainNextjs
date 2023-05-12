@@ -280,4 +280,7 @@
     width: 100%;
     text-align: center;
   }
+        .messagelist {
+          padding: 0.5rem;
+        }
 }

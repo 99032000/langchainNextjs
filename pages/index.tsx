@@ -212,7 +212,7 @@ export default function Home() {
                         <div className="chat-image">
                           <div className="w-10 rounded-full">{icon}</div>
                         </div>
-                        <div className="chat-bubble bg-slate-50 text-slate-900">
+                        <div className="chat-bubble bg-slate-50 text-slate-900 max-w-full">
                           {message.message}
                           {message.sourceDocs &&
                             message.sourceDocs.length > 0 && (

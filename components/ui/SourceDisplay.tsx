@@ -28,12 +28,19 @@ export default function SourceDisplay({ doc, index }: SourceDisplayProps) {
           >
             {doc.pageContent}
           </ReactMarkdown>
-          {!canView && (
+          {!canView ? (
             <p
               className="mt-2 cursor-pointer text-blue-500 text-base"
               onClick={() => setCanView((pre) => !pre)}
             >
               view more
+            </p>
+          ) : (
+            <p
+              className="mt-2 cursor-pointer text-blue-500 text-base"
+              onClick={() => setCanView((pre) => !pre)}
+            >
+              view less
             </p>
           )}
           <p className="mt-2">
