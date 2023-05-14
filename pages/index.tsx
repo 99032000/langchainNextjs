@@ -40,14 +40,7 @@ export default function Home() {
   const bottomRef = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
-    textAreaRef.current?.focus();
-    return () => {
-      textAreaRef.current?.blur();
-    };
-  }, []);
-
-  useEffect(() => {
-    if (messages.length === 0) {
+    if (messages.length === 1) {
       return;
     }
     if (bottomRef.current) {
